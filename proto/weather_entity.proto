@@ -1,0 +1,34 @@
+syntax = "proto3";
+
+package weather_app;
+
+enum MeasurementSystemProto {
+  MEASUREMENT_SYSTEM_UNSPECIFIED = 0;
+  MEASUREMENT_SYSTEM_METRIC = 1;
+  MEASUREMENT_SYSTEM_IMPERIAL = 2;
+}
+
+message WeatherEntity {
+  int32 schema_version = 1;
+
+  int64 observed_at_epoch_seconds = 2;
+  int64 cached_at_epoch_seconds = 3;
+
+  double temperature = 4;
+  double apparent_temperature = 5;
+  double precipitation = 6;
+  double rain = 7;
+  double wind_speed = 8;
+
+  int32 relative_humidity = 9;
+  int32 weather_code = 10;
+
+  MeasurementSystemProto measurement_system = 11;
+
+  double requested_latitude = 12;
+  double requested_longitude = 13;
+  double grid_latitude = 14;
+  double grid_longitude = 15;
+
+  string timezone = 16;
+}
